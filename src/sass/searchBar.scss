@@ -1,16 +1,28 @@
 @import "./var";
 
 .sb {
+
   padding: 0.5rem 2rem;
-  background: linear-gradient(
-    312.11deg,
-    rgba(0, 55, 255, 0.5) 25.93%,
-    rgba(0, 56, 255, 0.1) 40.45%,
-    rgba(0, 255, 225, 0.836) 140.92%
-  );
+  background: $light-grey-2;
   align-items: center;
   display: flex;
   flex-direction: row;
   height: 2rem;
   gap: 1em;
+  .wrapper-input{
+    position: relative;
+    .searchTerm{
+     
+    }
+    .icon{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      color: $medium-grey-2;
+      :hover{
+        color: $medium-grey-3;
+        cursor: pointer;
+      }
+    }
+  }
 }

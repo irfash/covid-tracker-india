@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { SORTBY_OPT } from "../constant";
 import { selectState } from "../features/data/dataSlice";
 import "../sass/searchBar.scss";
 import { Date } from "./input/Date";
 import { Input } from "./input/Input";
+import { Select } from "./input/Select";
 // --------------------------------------------------------------------
 export const SearchBar = () => {
   const state = useSelector(selectState);
@@ -17,12 +19,13 @@ export const SearchBar = () => {
         keyTerm="searchTerm"
       />
       <Date />
-      {/* <Select
+
+      <Select
         placeholder="SortBy..."
         className="sortBy"
         keyTerm="sortBy"
         options={SORTBY_OPT}
-      /> */}
+      />
 
       {/* <input type="text" placeholder="district" /> */}
     </div>

@@ -16,3 +16,53 @@ body {
   margin: 0;
   padding: 0;
 }
+input[type=text] {
+  position: relative;
+  font-size: .8rem;
+  color: rgb(0, 0, 0);
+  padding: .5em;
+  border: none;
+  box-sizing: border-box;
+   -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  background-color: transparent;
+  border-bottom: .1em solid rgba(68, 68, 68, 0.644);
+  &:focus{
+    background-color: rgba(148, 148, 148, 0.322);
+    text-decoration: none;
+    border-bottom:.15em solid   rgba(68, 68, 68, 0.644);
+  }
+  &::placeholder{
+    color: $medium-grey-2;
+    opacity: 1;
+  }
+  .icon{
+    position: absolute;  
+    top: 0px;
+  }
+
+
+}
+a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+ }
+ select{
+
+  color: $four;
+  background-color: transparent;
+  border: none;
+  padding: .2em .5em .2em .5em ;
+  margin: 0;
+  width: 8rem;
+  font-size: inherit;
+  border-top: .1em solid transparent;
+  &:hover,&:focus{
+    text-decoration: none;
+    border-top:.1rem solid   rgba(68, 68, 68, 0.644);
+      // background-color: rgba(148, 148, 148, 0.322);
+    // text-decoration: none;
+    // border-bottom:.1em solid   rgba(68, 68, 68, 0.644);
+  }
+ }

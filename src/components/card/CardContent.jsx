@@ -18,18 +18,15 @@ export const CardContent = ({ total = {}, delta = {}, delta7 = {} }) => {
     <div>
       <h3>{title}</h3>
       {index < range - 1 && (
-        <Icon
-          icon="arrowRight"
-          className="right"
-          clickHandelar={() => setIndex(index + 1)}
-        />
+        <div className="right">
+          <Icon icon="arrowRight" clickHandelar={() => setIndex(index + 1)} />
+        </div>
       )}
       {index > 0 && (
-        <Icon
-          icon="arrowLeft"
-          className="left"
-          clickHandelar={() => setIndex(index - 1)}
-        />
+        <div className="left">
+          {" "}
+          <Icon icon="arrowLeft" clickHandelar={() => setIndex(index - 1)} />
+        </div>
       )}
       <div>
         {Object.keys(val).map((key, id) => {

@@ -10,7 +10,7 @@ export const SelectCard = ({
   resetSelect,
 }) => {
   return (
-    <div>
+    <div className="wrapper">
       <select
         className={className}
         value={value}

@@ -22,13 +22,12 @@ export const Input = ({
     dispatch(filterCode());
     dispatch(filterStates());
     if (localStorage.getItem("date")) {
-      console.log("ia m");
       dispatch(fTimeStamp(JSON.parse(localStorage.getItem("date"))));
     }
   };
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className="wrapper-input">
       <input
         type="text"
         className={className}
@@ -37,7 +36,12 @@ export const Input = ({
         onChange={({ target }) => handelChangeInput(target.value)}
       />
       {input.length > 0 && (
-        <Icon icon="circleX" size="lg" clickHandelar={resetInput} />
+        <Icon
+          className="icon"
+          icon="circleX"
+          size="lg"
+          clickHandelar={resetInput}
+        />
       )}
     </div>
   );

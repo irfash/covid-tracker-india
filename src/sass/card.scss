@@ -1,22 +1,63 @@
+@import "./var";
+
+
+
 .cards {
   display: grid;
   margin: 1rem 1rem;
   gap: 1rem;
+ 
   .card {
     position: relative;
+    // z-index:;
     border-radius: 16px;
     background-color: dodgerblue;
     color: white;
     padding: 1rem;
     height: 15rem;
-    &__header {
+    
+    &__header{
+      color: $four;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      background-color: rgba(250, 235, 215, 0.219);
+      border-radius: 50px;
+      padding: .2rem .8rem .2rem .8rem;
+      .wrapper{
+        z-index: 3;
+        .icon{
+          padding-left: .5em;
+        }
+      }
+    }
+    &-nav{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      bottom: 0px;
+      left: 0px;
+      
+      &:hover{
+      background: rgba(255, 255, 255, 0.116);
+backdrop-filter: blur(.7px);
+      }
     }
     .left,
     .right {
+      z-index: 1000;
+      background-color: black;
+      padding: .5em .7em;
+      border-radius: 100px;
+     
       position: absolute;
       top: 50%;
+      .icon{
+        position: relative;
+        color: red;
+         z-index: 1000;
+      }
     }
     .left {
       left: 10px;

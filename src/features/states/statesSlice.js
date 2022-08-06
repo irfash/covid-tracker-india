@@ -4,7 +4,7 @@ import { fetch_data } from "../../utils/commonFunctions";
 
 const initialState = {
   states: {},
-  fStates: JSON.parse(localStorage.getItem("fStates")) || null,
+  fStates: JSON.parse(localStorage.getItem("fStates")) || {},
 };
 export const getStatesAsync = createAsyncThunk(
   "states/getStates",
@@ -51,8 +51,8 @@ export const statesSlice = createSlice({
     },
     [getStatesAsync.fulfilled]: (state, { payload }) => {
       state.status = "success";
-      console.log(JSON.stringify(state.fStates));
-      if (state.fStates === null) {
+
+      if (Object.keys(state.fStates).length === 0) {
         localStorage.setItem("fStates", JSON.stringify(payload));
         state.fStates = payload;
       }
@@ -66,5 +66,6 @@ export const statesSlice = createSlice({
 export const selectStatus = ({ states }) => states.status;
 export const selectStates = ({ states }) => states.states;
 export const selectFStates = ({ states }) => states.fStates;
+
 export const { filterStates } = statesSlice.actions;
 export default statesSlice.reducer;

@@ -39,7 +39,7 @@ export const STATE_NAMES = {
   LA: "Ladakh",
   LD: "Lakshadweep",
   PY: "Puducherry",
-  TT: "India",
+  // TT: "India",
 };
 const STATE_CODE_ARR = [];
 const STATE_CODE_MAP = new Map();
@@ -55,21 +55,24 @@ Object.entries(STATE_NAMES).map(([k, i]) => {
 export { STATE_CODE_ARR, STATE_CODE_MAP, STATE_CODE_OBJ };
 
 export const SORTBY_OPT = [
+  "Confirmed count",
+
+  "Affected Percentage",
+
+  "BananaVaccinated percentage",
+];
+
+export const SORTBY = [
   {
     label: "Confirmed count",
-
-    value: "cc",
+    value: "confirmed",
   },
-
   {
-    label: "Affected Percentage",
-
-    value: "ap",
+    label: "Confirmed count",
+    value: "confirmed",
   },
 
-  {
-    label: "BananaVaccinated percentage",
+  // "Affected Percentage",
 
-    value: "bp",
-  },
+  // "BananaVaccinated percentage",
 ];
