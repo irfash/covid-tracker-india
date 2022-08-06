@@ -1,0 +1,65 @@
+$white: #fff;
+$light: #f8f9fa;
+$dark: #343a40;
+$black: #000;
+
+$one: #eceff170;
+$two: #18ffff;
+$three: #5800ff;
+$four: #333333;
+
+$text-black: #4a4a4a;
+$off-white: #fafafa;
+$off-white-2: #f2f2f2;
+$off-white-3: #fcfcfc;
+$off-white-4: #f7f9fa;
+$off-white-5: #f7f7f7;
+$off-black: #2b2b2b;
+$off-black-2: #333333;
+$off-black-3: #383838;
+$blue: #007add;
+$blue-2: #0081eb;
+$blue-3: #0073d1;
+$blue-4: #006cc5;
+$light-grey: #e8e8e8;
+$light-grey-2: #ececec;
+$light-grey-3: #ededed;
+$light-grey-4: #c7c7c7;
+$light-grey-5: #e6e8eb;
+$light-grey-6: #e3f3fc;
+$light-grey-7: #e1f0fe;
+$medium-grey: #8f8f8f;
+$medium-grey-2: #505050;
+$medium-grey-3: #999999;
+$red: #ee3322;
+$green: #63e68e;
+
+$callout-blue: #e9f2f7b5;
+
+/////////////////////////////////////////////////////////////////////////////////
+// NOTE: New global colors scales
+$grey-900: #202124; // Headlines & Subheads
+$grey-800: #3c4043; // Navigational Icons
+$grey-800_28: rgba(60, 64, 67, 0.28); // disabled state labels
+$grey-800_08: rgba(60, 64, 67, 0.08); //
+$grey-700: #5f6468;
+$grey-650: #70757a; // Secondary Text
+$grey-600: #798086;
+$grey-500: #9299a0;
+$grey-400: #acb3ba;
+$grey-300: #c4c9cf;
+$grey-200: #dbdee1;
+$grey-100: #ebedef;
+$grey-050: #f6f7f7;
+$grey-025: #fafafa;
+$white: #ffffff;
+
+$tenor-blue-700: #00469f; // visited links
+
+$tenor-blue-510: #0076d6; // high emphasis labels, unvisited links (accessibility: provides better contrast than tenor blue)
+$tenor-blue-500: #007add; // Tenor blue, pure brand elements
+
+$success-green-800: #0a7e7a;
+$success-green-700: #109c89;
+$warning-orange-700: #b36110;
+$warning-orange-600: #d67f17;

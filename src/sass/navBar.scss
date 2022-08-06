@@ -1,0 +1,46 @@
+@import "./var";
+.link {
+  text-decoration: none;
+  color: $four;
+}
+.navbar {
+  padding: 0.5rem 2rem;
+  background-color: $one;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  justify-content: space-between;
+  &__barnd-link {
+    text-decoration: none;
+    color: $three;
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 0.1em;
+    .link {
+      font-size: 1rem;
+      padding: 0.2em;
+      background-color: $grey-050;
+      border-bottom: solid 1px $grey-500;
+      &:hover,
+      &:focus {
+        background-color: $grey-200;
+        border-bottom: solid 2px $grey-700;
+        transition: all 0.2s ease-in;
+      }
+    }
+    .git-link {
+      padding-left: 0.5em;
+      .icon {
+        color: $four;
+        border-radius: 200px;
+        &:hover,
+        &:focus {
+          color: $grey-700;
+        }
+      }
+    }
+  }
+}

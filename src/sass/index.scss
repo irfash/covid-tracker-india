@@ -1,0 +1,18 @@
+@import "./var";
+
+* {
+  font-family: "archia";
+}
+
+html {
+  overflow-x: hidden;
+  min-width: 100vw;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+
+  margin: 0;
+  padding: 0;
+}
