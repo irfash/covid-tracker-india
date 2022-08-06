@@ -8,7 +8,9 @@ import { Icon } from "../icon/Icon";
 
 export const Date = () => {
   const dispatch = useDispatch();
-  const [tempDate, setTempDate] = useState("");
+  const [tempDate, setTempDate] = useState(
+    JSON.parse(localStorage.getItem("date")) || "",
+  );
   const [date, setDate, removeDate] = useLocalStorage("date", "");
 
   const resetDate = () => {

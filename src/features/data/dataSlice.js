@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { STATE_CODE_ARR } from "../../constant";
 
 const initialState = {
-  searchTerm: localStorage.getItem("searchTerm") || "",
-  date: localStorage.getItem("date") || "",
+  searchTerm: JSON.parse(localStorage.getItem("searchTerm")) || "",
+  date: JSON.parse(localStorage.getItem("date")) || "",
   state: localStorage.getItem("state") || "",
   fCode: JSON.parse(localStorage.getItem("fCode")) || STATE_CODE_ARR,
 };
@@ -23,6 +23,7 @@ const dataSlice = createSlice({
 
       return { ...state, fCode: stateCodeArr };
     },
+    sortBy: () => {},
     setSearchTerm: (state, { payload }) => {
       state.searchTerm = payload;
     },

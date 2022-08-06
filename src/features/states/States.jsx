@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Card } from "../../components/card/Card";
+import { CardTimeStamp } from "../../components/card/timeStamp/CardTimeStamp";
 import { useLogger } from "../../hook/useLogger";
 import { selectDate } from "../data/dataSlice";
 import { selectFTStamp } from "../timeStamp/timeStampSlice";
@@ -14,25 +15,25 @@ export const States = () => {
   const fTimeStamp = useSelector(selectFTStamp);
   return (
     <>
+      {console.log(date)}
       {status === "success" && value !== null && value !== undefined ? (
         <div className="states">
           <div className="cards">
-            {
-              Object.keys(value).map((key, id) => {
-                return <Card stateCode={key} feald={value[key]} key={id} />;
-              })
-              // : Object.keys(fTimeStamp).map((key, id) => {
-              //     console.log(key);
-              //     return (
-              //       <Card
-              //         stateCode={key}
-              //         feald={fTimeStamp[key]}
-              //         key={id}
-              //         nav={false}
-              //       />
-              //     );
-              // })
-            }
+            {date === ""
+              ? Object.keys(value).map((key, id) => {
+                  console.log("iam ");
+                  return <Card stateCode={key} feald={value[key]} key={id} />;
+                })
+              : Object.keys(fTimeStamp).map((key, id) => {
+                  return (
+                    <CardTimeStamp
+                      stateCode={key}
+                      feald={fTimeStamp[key]}
+                      key={id}
+                      nav={false}
+                    />
+                  );
+                })}
           </div>
         </div>
       ) : (

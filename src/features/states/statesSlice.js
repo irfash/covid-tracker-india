@@ -4,7 +4,7 @@ import { fetch_data } from "../../utils/commonFunctions";
 
 const initialState = {
   states: {},
-  fStates: JSON.parse(localStorage.getItem("fStates")),
+  fStates: JSON.parse(localStorage.getItem("fStates")) || null,
 };
 export const getStatesAsync = createAsyncThunk(
   "states/getStates",
@@ -51,7 +51,7 @@ export const statesSlice = createSlice({
     },
     [getStatesAsync.fulfilled]: (state, { payload }) => {
       state.status = "success";
-
+      console.log(JSON.stringify(state.fStates));
       if (state.fStates === null) {
         localStorage.setItem("fStates", JSON.stringify(payload));
         state.fStates = payload;

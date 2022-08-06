@@ -5,7 +5,7 @@ import { useLocalStorage } from "../../hook/useLocalStorage";
 import { SelectCard } from "../input/SelectCard";
 import { CardContent } from "./CardContent";
 // --------------------------------------------------------------------
-export const Card = ({ stateCode, feald, nav = true }) => {
+export const Card = ({ stateCode, feald }) => {
   // const [value, setValue] = useLocalStorage(
   //   stateCode,
   //   localStorage.getItem(stateCode) || "",
@@ -52,17 +52,15 @@ export const Card = ({ stateCode, feald, nav = true }) => {
   );
   const districts =
     feald.districts !== undefined ? Object.keys(feald.districts) : [];
-  const [content, setContent] = useState(feald);
 
   const getContent = (content) => {
     const ini = {};
     ini["delta"] = content?.delta || {};
     ini["delta7"] = content?.delta7 || {};
     ini["total"] = content?.total || {};
-    console.log("ini");
-    console.log(content);
     return ini;
   };
+  const [content, setContent] = useState(getContent(feald));
 
   const handelChangeValue = (e) => {
     setValue(e.target.value);
@@ -76,19 +74,18 @@ export const Card = ({ stateCode, feald, nav = true }) => {
     <div className="card">
       <div className="card__header">
         <div>{STATE_NAMES[stateCode]}</div>
-        {nav && (
-          <SelectCard
-            handelChangeValue={handelChangeValue}
-            value={value}
-            keyTerm={stateCode}
-            placeholder="Destricts"
-            options={districts}
-            resetSelect={resetSelect}
-          />
-        )}
+
+        <SelectCard
+          handelChangeValue={handelChangeValue}
+          value={value}
+          keyTerm={stateCode}
+          placeholder="Destricts"
+          options={districts}
+          resetSelect={resetSelect}
+        />
       </div>
       <hr />
-      {console.log(content)}
+
       <CardContent {...content} />
     </div>
   );
