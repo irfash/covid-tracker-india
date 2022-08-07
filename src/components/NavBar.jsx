@@ -18,7 +18,7 @@ export const NavBar = () => {
         </Link>
         <a
           className="git-link "
-          href="https://reactrouter.com/docs/en/v6/getting-started/installation"
+          href="https://github.com/irfash/covid-tracker-india"
           target="_blank"
           rel="noreferrer"
         >
