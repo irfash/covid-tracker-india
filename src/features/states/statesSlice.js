@@ -43,7 +43,7 @@ export const statesSlice = createSlice({
       });
       localStorage.setItem("fStates", JSON.stringify(fStates));
       return { ...state, fStates: fStates };
-    },
+    }
   },
   extraReducers: {
     [getStatesAsync.pending]: (state) => {

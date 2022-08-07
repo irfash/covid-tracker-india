@@ -59,20 +59,7 @@ export const SORTBY_OPT = [
 
   "Affected Percentage",
 
-  "BananaVaccinated percentage",
+  "Vaccinated percentage",
 ];
 
-export const SORTBY = [
-  {
-    label: "Confirmed count",
-    value: "confirmed",
-  },
-  {
-    label: "Confirmed count",
-    value: "confirmed",
-  },
-
-  // "Affected Percentage",
-
-  // "BananaVaccinated percentage",
-];
+export const SORTBY = ["confirmed", "vaccinated"];

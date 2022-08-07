@@ -1,18 +1,20 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { SORTBY_OPT } from "../constant";
-import { selectState } from "../features/data/dataSlice";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { SORTBY, SORTBY_OPT } from "../constant";
+import { selectState, setstate, sortBy } from "../features/data/dataSlice";
+import { useLogger } from "../hook/useLogger";
 import "../sass/searchBar.scss";
 import { Date } from "./input/Date";
 import { Input } from "./input/Input";
 import { Select } from "./input/Select";
 // --------------------------------------------------------------------
 export const SearchBar = () => {
-  const state = useSelector(selectState);
+  const stateStatus = useSelector(selectState);
+  const [sortOpt, setSortOpt] = useState("");
 
   return (
     <div className="sb">
-      {!state ? <span>India</span> : <span>Tn</span>}
+      {!stateStatus ? <span>Inia</span> : <span></span>}
       <Input
         className="searchTerm"
         placeholder="Search..."
@@ -24,7 +26,7 @@ export const SearchBar = () => {
         placeholder="SortBy..."
         className="sortBy"
         keyTerm="sortBy"
-        options={SORTBY_OPT}
+        options={SORTBY}
       />
 
       {/* <input type="text" placeholder="district" /> */}

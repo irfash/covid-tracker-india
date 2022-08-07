@@ -3,11 +3,13 @@ import { useSelector } from "react-redux";
 import { Card } from "../../components/card/Card";
 import { CardTimeStamp } from "../../components/card/timeStamp/CardTimeStamp";
 
-import { selectDate } from "../data/dataSlice";
+import { selectDate, selectFSorted, selectSortBy } from "../data/dataSlice";
 import { selectFTStamp } from "../timeStamp/timeStampSlice";
 import { selectFStates, selectStatus } from "./statesSlice";
 
 export const States = () => {
+  const sortBy = useSelector(selectSortBy);
+  const fSorted = useSelector(selectFSorted);
   const status = useSelector(selectStatus);
   const fState = useSelector(selectFStates);
   const date = useSelector(selectDate);
@@ -18,9 +20,17 @@ export const States = () => {
         <div className="states">
           <div className="cards">
             {!date
-              ? Object.keys(fState).map((key, id) => {
-                  return <Card stateCode={key} feald={fState[key]} key={id} />;
-                })
+              ? !sortBy
+                ? Object.keys(fState).map((key, id) => {
+                    return (
+                      <Card stateCode={key} feald={fState[key]} key={id} />
+                    );
+                  })
+                : Object.keys(fSorted).map((key, id) => {
+                    return (
+                      <Card stateCode={key} feald={fSorted[key]} key={id} />
+                    );
+                  })
               : Object.keys(fTimeStamp).map((key, id) => {
                   return (
                     <CardTimeStamp
