@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Figma File Link 
     
-UI/UX Design for this project [Figma File](https://www.figma.com/file/5uQJ2azzvlwdXT4FamfcLE/Untitled?node-id=0%3A1)
+UI/UX Design  [Figma File](https://www.figma.com/file/5uQJ2azzvlwdXT4FamfcLE/Untitled?node-id=0%3A1)
 
 ## Available Scripts
 
