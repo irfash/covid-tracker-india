@@ -16,12 +16,15 @@ export const States = () => {
   const fTimeStamp = useSelector(selectFTStamp);
   return (
     <>
+      {console.log(`<-----FStates------>`)}
       {status === "success" && fState !== null && fState !== undefined ? (
         <div className="states">
           <div className="cards">
             {!date
               ? !sortBy
                 ? Object.keys(fState).map((key, id) => {
+                    console.log(`card -> ${key}`);
+                    console.log(fState[key]);
                     return (
                       <Card stateCode={key} feald={fState[key]} key={id} />
                     );

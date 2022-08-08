@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectFSorted,
   selectToggleAZ,
   sortBy,
   toggleAZ,
@@ -18,7 +17,7 @@ export const Select = ({
   const btnState = useSelector(selectToggleAZ);
   const [value, setValue] = useLocalStorage(keyTerm, "");
   const dispatch = useDispatch();
-  // const log = useSelector(selectFSorted);
+
   const resetSelect = () => {
     setValue("");
     dispatch(sortBy(""));

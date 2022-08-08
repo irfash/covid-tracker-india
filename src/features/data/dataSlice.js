@@ -63,7 +63,6 @@ export const selectFSorted = ({ states, data }) => {
   }
   if (data.toggleAZ) {
     newArr.reverse();
-    console.log(newArr);
   }
 
   const newObj = {};
@@ -71,7 +70,6 @@ export const selectFSorted = ({ states, data }) => {
     newObj[value[0]] = value[1];
     return "";
   });
-  // console.log(newObj);
   return newObj;
 };
 export const { setSearchTerm, filterCode, setSearchDate, sortBy, toggleAZ } =

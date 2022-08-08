@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { STATE_NAMES } from "../../constant";
 import { useLocalStorage } from "../../hook/useLocalStorage";
-import { useLogger } from "../../hook/useLogger";
+import { Icon } from "../icon/Icon";
 import { SelectCard } from "../input/SelectCard";
 import { CardContent } from "./CardContent";
 // --------------------------------------------------------------------
@@ -58,37 +57,60 @@ export const Card = ({ stateCode, feald }) => {
   // const conte = () => {
   //   return localDistrict === "" ? districtFields[localDistrict] : stateFields;
   // };
-
+  const stateName = STATE_NAMES[stateCode];
   const [value, setValue] = useLocalStorage(
     stateCode,
     localStorage.getItem(stateCode) || "",
   );
-  const districts =
-    feald.districts !== undefined ? Object.keys(feald.districts) : [];
-
-  const getContent = (content) => {
-    const ini = {};
-    ini["delta"] = content?.delta || {};
-    ini["delta7"] = content?.delta7 || {};
-    ini["total"] = content?.total || {};
-    return ini;
+  const [districts, setDistricts] = useState(
+    feald.districts !== undefined ? Object.keys(feald.districts) : [],
+  );
+  // const districts =
+  const formatContent = (old) => {
+    const newValue = {};
+    newValue["delta"] = old?.delta || {};
+    newValue["delta7"] = old?.delta7 || {};
+    newValue["total"] = old?.total || {};
+    return newValue;
   };
-  const [content, setContent] = useState(getContent(feald));
+
+  const [content, setContent] = useState();
 
   const handelChangeValue = (e) => {
     setValue(e.target.value);
-    setContent(getContent(feald.districts[e.target.value]));
+    // setContent(formatContent(feald.districts[e.target.value]));
   };
   const resetSelect = () => {
     setValue("");
-    setContent(getContent(feald));
+    // setContent(formatContent(feald));
   };
 
+  // ---
+  // const data = [
+  //   { Total: content.total },
+  //   { Delta: content.delta },
+  //   { Delta7: content.delta7 },
+  // ];
+
+  // const [index, setIndex] = useState(0);
+  // const range = data.length;
+  // const title = Object.keys(data[index]);
+  // const val = data[index][title];
+
+  // ---
+
+  useEffect(() => {
+    if (value === "") {
+      setContent((content) => formatContent(feald));
+    } else {
+      setContent((content) => formatContent(feald.districts[value]));
+    }
+  }, [feald, value]);
   return (
     <div className="card">
       <Link to="/State" className="card-nav"></Link>
       <div className="card__header">
-        <div>{STATE_NAMES[stateCode]}</div>
+        <div>{stateName}</div>
 
         <SelectCard
           handelChangeValue={handelChangeValue}
@@ -100,8 +122,37 @@ export const Card = ({ stateCode, feald }) => {
         />
       </div>
       <hr />
-
+      {/* {console.log(content)} */}
+      {console.log(`card -> ${stateCode}  -> ${stateName} feald`)}
+      {console.log(feald)}
+      {console.log(`card -> ${stateCode}  -> ${stateName} content`)}
+      {console.log(content)}
       <CardContent {...content} />
+      {/* <div>
+        <h3>{title}</h3>
+        {index < range - 1 && (
+          <div className="right">
+            <Icon icon="arrowRight" clickHandelar={() => setIndex(index + 1)} />
+          </div>
+        )}
+        {index > 0 && (
+          <div className="left">
+            {" "}
+            <Icon icon="arrowLeft" clickHandelar={() => setIndex(index - 1)} />
+          </div>
+        )}
+        <div>
+          {Object.keys(val).map((key, id) => {
+            console.log();
+            return (
+              <div key={id}>
+                {`${key}`}
+                {`   :  ${val[key]}`}
+              </div>
+            );
+          })}
+        </div>
+      </div> */}
     </div>
   );
 };
